@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ancestral Offering | Winsome Yuen</title>
+  <link rel="icon" type="image/png" href="../../winsome-yuen-icon.png">
+  <link rel="stylesheet" href="../works.css">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="ancestraloffering.css">
+</head>
+<body>
+  <header>
+    <h1>Winsome Yuen</h1>
+    <nav>
+      <a href="../../" class="animated-underline-white">Home</a>
+      <a href="../../about/" class="animated-underline-white">About</a>
+      <a href="../" class="animated-underline-white">Works</a>
+      <a href="../../contact/" class="animated-underline-white">Contact</a>
+    </nav>
+  </header>
+  
+  <div class="artwork-detail">
+    <a href="../" class="back-link">Back to Works</a>
+    
+    <div class="artwork-header">
+      <h1>Ancestral Offering</h1>
+      <div class="artwork-meta">
+        <span class="meta-item">2026</span>
+        <span class="meta-item">Digital Art</span>
+        <span class="meta-item">Cultural Heritage</span>
+        <span class="meta-item">Contemporary</span>
+      </div>
+    </div>
+    
+    <div class="artwork-image">
+      <div class="image-reel">
+        <div class="reel-container">
+          <img src="images/Ancestral Offering.jpg" alt="Ancestral Offering - Digital Art by Winsome Yuen" class="reel-image active">
+          <img src="images/Ancestral Offering 1.jpg" alt="Ancestral Offering 1 - Digital Art by Winsome Yuen" class="reel-image">
+          <img src="images/Ancestral Offering 2.jpg" alt="Ancestral Offering 2 - Digital Art by Winsome Yuen" class="reel-image">
+          <img src="images/Ancestral Offering 3.jpg" alt="Ancestral Offering 3 - Digital Art by Winsome Yuen" class="reel-image">
+        </div>
+        
+        <div class="reel-controls">
+          <button class="reel-btn prev-btn" onclick="changeImage(-1)">‹</button>
+          <div class="reel-indicators">
+            <span class="indicator active" onclick="goToImage(0)"></span>
+            <span class="indicator" onclick="goToImage(1)"></span>
+            <span class="indicator" onclick="goToImage(2)"></span>
+            <span class="indicator" onclick="goToImage(3)"></span>
+          </div>
+          <button class="reel-btn next-btn" onclick="changeImage(1)">›</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="artwork-description">
+      <h3>About the Work</h3>
+      <p>
+        "Ancestral Offering" is a contemplative series that bridges the gap between tradition and contemporary 
+        digital art. This work explores the profound rituals of honoring ancestors through the lens of modern 
+        visual storytelling, creating a dialogue between past and present, memory and innovation.
+      </p>
+      
+      <p>
+        Through a collection of carefully composed digital pieces, this series examines the spiritual and cultural 
+        significance of ancestral veneration practices. Each image in the collection captures moments of reverence, 
+        tradition, and the enduring connection between generations, reimagined through contemporary artistic expression.
+      </p>
+      
+      <h3>Technique</h3>
+      <p>
+        Created using digital techniques , "Ancestral Offering" combines photographic elements with 
+        digital manipulation to create visually striking compositions. The work employs careful attention to 
+        lighting, texture, and symbolic imagery to evoke the solemnity and beauty inherent in ancestral rituals. 
+        Each piece is meticulously crafted to honor the subject matter while pushing the boundaries of digital artistry.
+      </p>
+      
+      <h3>Inspiration</h3>
+      <p>
+        The "Ancestral Offering" series draws inspiration from the rich tapestry of cultural traditions surrounding 
+        ancestor worship and remembrance practices across various cultures. In an increasingly globalized world, 
+        this work serves as a meditation on heritage, identity, and the importance of maintaining connections to 
+        our roots. The series invites viewers to reflect on their own relationships with tradition, family history, 
+        and the ways in which we honor those who came before us.
+      </p>
+    </div>
+  </div>
+  
+  <footer style="text-align:center; padding:2rem 0 1rem 0; color:#888;">
+    &copy; 2025 WinsomeYuen. All rights reserved.
+  </footer>
+
+  <script>
+    let currentImageIndex = 0;
+    const images = document.querySelectorAll('.reel-image');
+    const indicators = document.querySelectorAll('.indicator');
+    let autoPlayInterval;
+
+    function showImage(index) {
+      // Hide all images
+      images.forEach(img => img.classList.remove('active'));
+      indicators.forEach(ind => ind.classList.remove('active'));
+      
+      // Show current image and indicator
+      images[index].classList.add('active');
+      indicators[index].classList.add('active');
+      
+      currentImageIndex = index;
+    }
+
+    function changeImage(direction) {
+      let newIndex = currentImageIndex + direction;
+      
+      if (newIndex >= images.length) {
+        newIndex = 0;
+      } else if (newIndex < 0) {
+        newIndex = images.length - 1;
+      }
+      
+      showImage(newIndex);
+      resetAutoPlay();
+    }
+
+    function goToImage(index) {
+      showImage(index);
+      resetAutoPlay();
+    }
+
+    function resetAutoPlay() {
+      clearInterval(autoPlayInterval);
+      startAutoPlay();
+    }
+
+    function startAutoPlay() {
+      autoPlayInterval = setInterval(() => {
+        changeImage(1);
+      }, 4000); // Change image every 4 seconds
+    }
+
+    // Start auto-play when page loads
+    document.addEventListener('DOMContentLoaded', function() {
+      startAutoPlay();
+      
+      // Pause auto-play on hover
+      const reelContainer = document.querySelector('.reel-container');
+      reelContainer.addEventListener('mouseenter', () => {
+        clearInterval(autoPlayInterval);
+      });
+      
+      reelContainer.addEventListener('mouseleave', () => {
+        startAutoPlay();
+      });
+    });
+  </script>
+</body>
+</html>
