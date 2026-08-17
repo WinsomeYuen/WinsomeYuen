@@ -117,6 +117,16 @@ section {
   font-weight: 700;
 }
 
+.exhibition-content h3 a {
+  color: #222;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.exhibition-content h3 a:hover {
+  color: #666;
+}
+
 .exhibition-location {
   margin: 0.25rem 0;
   font-weight: 600;

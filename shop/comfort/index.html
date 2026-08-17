@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="../../winsome-yuen-icon.png">
+  <title>Comfort - Limited Edition Print | Winsome Yuen</title>
+  <meta name="description" content="Comfort - Limited edition giclée print by Winsome Yuen. Edition 1/50, A3 size, signed and numbered.">
+  <link rel="stylesheet" href="product.css">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header>
+    <h1>Winsome Yuen</h1>
+    <nav>
+      <a href="../../" class="animated-underline-white">Home</a>
+      <a href="../../about/" class="animated-underline-white">About</a>
+      <a href="../../works/" class="animated-underline-white">Works</a>
+      <a href="../" class="animated-underline-white">Shop</a>
+      <a href="../../contact/" class="animated-underline-white">Contact</a>
+    </nav>
+  </header>
+  
+  <section id="product-detail">
+    <div class="product-container">
+      <div class="product-gallery">
+        <div class="main-image">
+          <img id="current-image" src="../../works/Comfort/images/Comfort.jpg" alt="Comfort - Limited Edition Print">
+          <button class="nav-arrow prev-arrow" onclick="changeImage(-1)">‹</button>
+          <button class="nav-arrow next-arrow" onclick="changeImage(1)">›</button>
+        </div>
+        <div class="image-details">
+          <span id="image-counter">1 of 1</span>
+        </div>
+      </div>
+      
+      <div class="product-info">
+        <div class="breadcrumb">
+          <a href="../">Shop</a> / <span>Comfort</span>
+        </div>
+        
+        <h1>Comfort</h1>
+        <p class="artist">by Winsome Yuen</p>
+        
+        <div class="price-section">
+          <div class="price">£180</div>
+          <div class="price-note">
+            <p>
+              <b>+ p&p</b>
+            </p>
+          </div>
+        </div>
+        
+        <div class="product-details">
+          <div class="detail-item">
+            <span class="label">Medium:</span>
+            <span class="value">Giclée print on archival paper</span>
+          </div>
+          <div class="detail-item">
+            <span class="label">Edition:</span>
+            <span class="value">1/50 (Limited Edition)</span>
+          </div>
+          <div class="detail-item">
+            <span class="label">Size:</span>
+            <span class="value">297 x 420 mm (A3)</span>
+          </div>
+          <div class="detail-item">
+            <span class="label">Signed:</span>
+            <span class="value">Yes, signed and numbered by artist</span>
+          </div>
+          <div class="detail-item">
+            <span class="label">Year:</span>
+            <span class="value">2026</span>
+          </div>
+        </div>
+        
+        <div class="product-description">
+          <h3>About this artwork</h3>
+          <p>
+            "Comfort" is a serene exploration of solace, warmth, and the simple moments that bring us peace. 
+            This work captures the essence of finding refuge in everyday life, celebrating the quiet beauty 
+            of contentment and the profound sense of security that comes from the presence of those we cherish.
+          </p>
+          <p>
+            Through thoughtful composition and gentle aesthetics, this piece invites viewers to pause and reflect 
+            on their own sources of comfort. The limited edition of 50 prints ensures exclusivity while making 
+            this contemplative piece accessible to collectors and art lovers who appreciate moments of tranquility.
+          </p>
+
+          <p><b>Note: This print may take up to 2-3 weeks to be shipped. They are printed in batches by a high-quality 
+            printing studio in the UK.</b></p>
+        </div>
+        
+        <div class="purchase-section">
+          <button class="buy-button" onclick="handlePurchase()">Purchase Now</button>
+          <p class="availability-note">
+            Limited edition - only 50 prints available
+          </p>
+          <p><b>**For international shipping prices please contact me directly. International buyers are responsible for any customs and import fees that may apply.</b></p> 
+          <div class="terms-link">
+            <a href="../terms.html">View Terms & Conditions</a>
+          </div>
+        </div>
+        
+        <div class="additional-info">
+          <div class="info-item">
+            <h4>Print Quality</h4>
+            <p>Archival giclée print on 300gsm Hahnemühle Photo Rag paper</p>
+          </div>
+          <div class="info-item">
+            <h4>Packaging</h4>
+            <p>Shipped in sturdy cardboard flat packaging</p>
+          </div>
+          <div class="info-item">
+            <h4>Authentication</h4>
+            <p>Each print is signed and numbered by the artist</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer style="text-align:center; padding:2rem 0 1rem 0; color:#888;">
+    &copy; 2026 WinsomeYuen. All rights reserved.
+  </footer>
+
+  <script>
+    // Image gallery functionality
+    const images = [
+      {
+        src: '../../works/Comfort/images/Comfort.jpg',
+        alt: 'Comfort - Limited Edition Print'
+      }
+    ];
+    
+    let currentImageIndex = 0;
+    
+    function changeImage(direction) {
+      currentImageIndex = (currentImageIndex + direction + images.length) % images.length;
+      
+      const currentImage = document.getElementById('current-image');
+      const imageCounter = document.getElementById('image-counter');
+      
+      currentImage.src = images[currentImageIndex].src;
+      currentImage.alt = images[currentImageIndex].alt;
+      imageCounter.textContent = `${currentImageIndex + 1} of ${images.length}`;
+    }
+    
+    // Keyboard navigation
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'ArrowLeft') {
+        changeImage(-1);
+      } else if (event.key === 'ArrowRight') {
+        changeImage(1);
+      }
+    });
+    
+    function handlePurchase() {
+      // Redirect to contact page for purchase inquiries
+      window.location.href = '../../contact/';
+    }
+  </script>
+</body>
+</html>
