@@ -49,6 +49,7 @@
   height: 80vh;
   overflow: hidden;
   border-radius: 12px;
+  background: #000;
 }
 
 .reel-image {
