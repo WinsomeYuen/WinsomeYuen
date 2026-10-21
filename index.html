@@ -3,25 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" href="winsome-yuen-icon.png">
+  <link rel="icon" type="image/png" href="winsomeyuen-icon.png">
   <title>Winsome Yuen</title>
-  <meta name="description" content="A collection of dog artworks and history of dogs by Winsome Yuen. 
-  It is a platform for Winsome Yuen to showcase her art and connect with dog lovers.">
+  <meta name="description" content="Portfolio of Winsome Yuen — contemporary dog art through photography, digital print, and sculpture.">
+  <link rel="stylesheet" href="site.css">
   <link rel="stylesheet" href="index.css">
-  <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <div class="fullscreen-home">
-    <h1>Winsome Yuen</h1>
-    <nav class="home-nav">
-      <a href="about/" class="animated-underline-black">About</a>
-      <a href="works/" class="animated-underline-black">Works</a>
-      <a href="shop/" class="animated-underline-black">Shop</a>
-      <a href="contact/" class="animated-underline-black">Contact</a>
+<body class="home-body">
+  <header class="site-header home-header">
+    <a href="./" class="site-logo">Winsome Yuen</a>
+    <nav class="site-nav">
+      <a href="about/">About</a>
+      <a href="works/">Works</a>
+      <a href="shop/">Shop</a>
+      <a href="contact/">Contact</a>
     </nav>
-    <footer style="text-align:center; padding:2rem 0 1rem 0; color:#888;">
-        &copy; 2026 WinsomeYuen. All rights reserved.
-    </footer>
-  </div>
+  </header>
+
+  <main class="home-hero">
+    <div class="home-hero__media" aria-hidden="true">
+      <img src="works/Comfort/images/Comfort Framed.jpg" alt="">
+    </div>
+    <div class="home-hero__veil"></div>
+    <div class="home-hero__content">
+      <h1 class="reveal">Winsome Yuen</h1>
+      <p class="reveal reveal-delay-1">
+        Contemporary art exploring companionship, ritual, and quiet moments through dogs.
+      </p>
+      <div class="home-hero__cta reveal reveal-delay-2">
+        <a href="works/" class="btn btn-primary">View works</a>
+        <a href="shop/" class="btn btn-ghost">Shop prints</a>
+      </div>
+    </div>
+  </main>
 </body>
 </html>

@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&display=swap');
+
+:root {
+  --ink: #141310;
+  --ink-soft: #2a2722;
+  --stone: #ebe8e2;
+  --stone-deep: #d8d3ca;
+  --paper: #f7f5f1;
+  --mist: #f0eeea;
+  --muted: #6b6660;
+  --moss: #3f5347;
+  --moss-hover: #334439;
+  --line: rgba(20, 19, 16, 0.12);
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Manrope', system-ui, sans-serif;
+  --space: clamp(1.25rem, 3vw, 2.5rem);
+  --max: 1120px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 400;
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse 80% 50% at 10% -10%, rgba(63, 83, 71, 0.08), transparent 50%),
+    radial-gradient(ellipse 60% 40% at 100% 0%, rgba(20, 19, 16, 0.05), transparent 45%),
+    linear-gradient(180deg, var(--paper) 0%, var(--stone) 100%);
+  background-attachment: fixed;
+  line-height: 1.65;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.1rem var(--space);
+  background: rgba(247, 245, 241, 0.88);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+
+.site-logo {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.35rem 1.35rem;
+}
+
+.site-nav a {
+  font-size: 0.92rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--ink-soft);
+  position: relative;
+  padding: 0.2rem 0;
+}
+
+.site-nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--moss);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.45s var(--ease);
+}
+
+.site-nav a:hover {
+  color: var(--ink);
+}
+
+.site-nav a:hover::after {
+  transform: scaleX(1);
+}
+
+.site-footer {
+  text-align: center;
+  padding: 3rem var(--space) 2rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+}
+
+.page {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: clamp(2.5rem, 6vw, 4.5rem) var(--space);
+}
+
+.page-intro {
+  max-width: 36rem;
+  margin-bottom: 3rem;
+}
+
+.page-intro h1,
+.page-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin: 0 0 0.85rem;
+  color: var(--ink);
+}
+
+.page-intro p,
+.page-lede {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+  max-width: 34rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 1.5rem;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background 0.3s var(--ease), color 0.3s var(--ease), border-color 0.3s var(--ease), transform 0.3s var(--ease);
+}
+
+.btn-primary {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.btn-primary:hover {
+  background: var(--moss);
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--ink);
+}
+
+.btn-ghost:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  animation: reveal-up 0.9s var(--ease) forwards;
+}
+
+.reveal-delay-1 { animation-delay: 0.12s; }
+.reveal-delay-2 { animation-delay: 0.24s; }
+.reveal-delay-3 { animation-delay: 0.36s; }
+
+@keyframes reveal-up {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 720px) {
+  .site-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 1rem var(--space);
+  }
+
+  .site-nav {
+    justify-content: flex-start;
+    gap: 0.85rem 1.1rem;
+  }
+
+  .site-nav a {
+    font-size: 0.8rem;
+  }
+}
+
+/* Legacy underline helpers kept for older markup */
+.animated-underline-black,
+.animated-underline-white {
+  position: relative;
+}
