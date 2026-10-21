@@ -1,38 +1,5 @@
-.animated-underline-black {
-  position: relative;
-  overflow: hidden;
-}
-.animated-underline-black::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 2px;
-  background: #111;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
-}
-.animated-underline-black:hover::after {
-  transform: scaleX(1);
-}
+/* Legacy helpers — prefer site.css for new pages */
+.animated-underline-black,
 .animated-underline-white {
   position: relative;
-  overflow: hidden;
-}
-.animated-underline-white::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 2px;
-  background: #fff;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
-}
-.animated-underline-white:hover::after {
-  transform: scaleX(1);
 }
