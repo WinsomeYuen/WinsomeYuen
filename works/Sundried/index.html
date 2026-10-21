@@ -26,8 +26,7 @@
       <h1>Sundried</h1>
       <div class="artwork-meta">
         <span class="meta-item">2026</span>
-        <span class="meta-item">Photography</span>
-        <span class="meta-item">Digital</span>
+        <span class="meta-item">Inkjet print on paper towel</span>
         <span class="meta-item">Contemporary</span>
       </div>
     </div>
@@ -35,7 +34,7 @@
     <div class="artwork-image">
       <div class="image-reel">
         <div class="reel-container">
-          <img src="images/Sundried - Winsome Yuen - 2026.jpg" alt="Sundried - Photography by Winsome Yuen" class="reel-image active">
+          <img src="images/Sundried - Winsome Yuen - 2026.jpg" alt="Sundried - Inkjet print on paper towel by Winsome Yuen" class="reel-image active">
         </div>
         
         <div class="reel-controls">
@@ -60,64 +59,6 @@
   <footer class="site-footer">
     &copy; 2026 Winsome Yuen. All rights reserved.
   </footer>
-
-  <script>
-    let currentImageIndex = 0;
-    const images = document.querySelectorAll('.reel-image');
-    const indicators = document.querySelectorAll('.indicator');
-    let autoPlayInterval;
-
-    function showImage(index) {
-      images.forEach(img => img.classList.remove('active'));
-      indicators.forEach(ind => ind.classList.remove('active'));
-      
-      images[index].classList.add('active');
-      indicators[index].classList.add('active');
-      
-      currentImageIndex = index;
-    }
-
-    function changeImage(direction) {
-      let newIndex = currentImageIndex + direction;
-      
-      if (newIndex >= images.length) {
-        newIndex = 0;
-      } else if (newIndex < 0) {
-        newIndex = images.length - 1;
-      }
-      
-      showImage(newIndex);
-      resetAutoPlay();
-    }
-
-    function goToImage(index) {
-      showImage(index);
-      resetAutoPlay();
-    }
-
-    function resetAutoPlay() {
-      clearInterval(autoPlayInterval);
-      startAutoPlay();
-    }
-
-    function startAutoPlay() {
-      autoPlayInterval = setInterval(() => {
-        changeImage(1);
-      }, 4000);
-    }
-
-    document.addEventListener('DOMContentLoaded', function() {
-      startAutoPlay();
-      
-      const reelContainer = document.querySelector('.reel-container');
-      reelContainer.addEventListener('mouseenter', () => {
-        clearInterval(autoPlayInterval);
-      });
-      
-      reelContainer.addEventListener('mouseleave', () => {
-        startAutoPlay();
-      });
-    });
-  </script>
+  <script src="../artwork.js"></script>
 </body>
 </html>

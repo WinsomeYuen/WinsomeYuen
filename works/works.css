@@ -183,6 +183,10 @@
   gap: 1rem;
 }
 
+.image-reel.single-image .reel-controls {
+  display: none;
+}
+
 .reel-btn {
   background: var(--ink);
   color: var(--paper);
